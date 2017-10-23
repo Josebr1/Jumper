@@ -41,6 +41,7 @@ public class Canos {
             cano.move();
 
             if(cano.saiuDaTela()){
+                iterator.remove();
                 Cano outroCano = new Cano(tela, getMaximo() + DISTANCIA_ENTRE_CANOS);
                 iterator.add(outroCano);
             }
