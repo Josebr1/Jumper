@@ -30,4 +30,8 @@ public class Cano {
         canvas.drawRect(posicao, alturaDoCanoInferior, posicao + LARGURA_DO_CANO, tela.getAltura(), Cores.getCorDoCano());
     }
 
+    public void move(){
+        this.posicao -= 5;
+    }
+
 }
