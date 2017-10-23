@@ -1,6 +1,7 @@
 package br.com.imoob.jumper;
 
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.ParcelUuid;
 
@@ -29,6 +30,15 @@ public class Cores {
         branco.setTypeface(Typeface.DEFAULT_BOLD);
         branco.setShadowLayer(3, 5, 5, 0xFF000000);
         return branco;
+    }
+
+    public static Paint getCorDoGameOver(){
+        Paint vermelho = new Paint();
+        vermelho.setColor(0xFFFF0000);
+        vermelho.setTextSize(50);
+        vermelho.setTypeface(Typeface.DEFAULT_BOLD);
+        vermelho.setShadowLayer(2, 3, 3, 0xFF000000);
+        return vermelho;
     }
 
 }
