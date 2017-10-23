@@ -9,7 +9,11 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.imoob.jumper.Cano;
+import br.com.imoob.jumper.Canos;
 import br.com.imoob.jumper.Passaro;
 import br.com.imoob.jumper.R;
 import br.com.imoob.jumper.Tela;
@@ -23,7 +27,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener{
     private boolean isRunning = true;
     private final SurfaceHolder holder = getHolder();
     private Passaro passaro;
-    private Cano cano;
+    private Canos canos;
     private Bitmap background;
     private Tela tela;
 
@@ -50,8 +54,8 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener{
             passaro.desenhaNo(canvas);
             passaro.cai();
 
-            cano.desenhaNo(canvas);
-            cano.move();
+            canos.desenhaNo(canvas);
+            canos.move();
 
             // Aqui vamos desenhar os elementos do jogo!
             holder.unlockCanvasAndPost(canvas);
@@ -71,7 +75,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener{
     private void inicializaElementos(){
         this.passaro = new Passaro();
         this.tela = new Tela(getContext());
-        this.cano = new Cano(tela, 200);
+        this.canos = new Canos(tela);
 
         Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.background);
         this.background = Bitmap.createScaledBitmap(back, back.getWidth(), tela.getAltura(), false);
