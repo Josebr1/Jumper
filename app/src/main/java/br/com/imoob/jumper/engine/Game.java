@@ -4,8 +4,10 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 
 import br.com.imoob.jumper.Passaro;
 import br.com.imoob.jumper.R;
@@ -15,7 +17,7 @@ import br.com.imoob.jumper.Tela;
  * Created by jose on 10/22/17.
  */
 
-public class Game extends SurfaceView implements Runnable{
+public class Game extends SurfaceView implements Runnable, View.OnTouchListener{
 
     private boolean isRunning = true;
     private final SurfaceHolder holder = getHolder();
@@ -27,6 +29,7 @@ public class Game extends SurfaceView implements Runnable{
         super(context);
 
         inicializaElementos();
+        setOnTouchListener(this);
     }
 
 
@@ -67,5 +70,11 @@ public class Game extends SurfaceView implements Runnable{
         Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.background);
         this.background = Bitmap.createScaledBitmap(back, back.getWidth(), tela.getAltura(), false);
 
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        passaro.pula();
+        return false;
     }
 }
