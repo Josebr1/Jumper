@@ -16,8 +16,9 @@ public class Canos {
     private static final int DISTANCIA_ENTRE_CANOS = 250;
     private List<Cano> canos = new ArrayList<>();
     private Tela tela;
+    private Pontuacao pontuacao;
 
-    public Canos(Tela tela){
+    public Canos(Tela tela, Pontuacao pontuacao){
 
         int posicaoInicial = 200;
         for(int i =0; i<QUANTIDADE_DE_CANOS; i++){
@@ -26,6 +27,7 @@ public class Canos {
         }
 
         this.tela = tela;
+        this.pontuacao = pontuacao;
     }
 
     public void desenhaNo(Canvas canvas){
@@ -41,6 +43,7 @@ public class Canos {
             cano.move();
 
             if(cano.saiuDaTela()){
+                pontuacao.aumenta();
                 iterator.remove();
                 Cano outroCano = new Cano(tela, getMaximo() + DISTANCIA_ENTRE_CANOS);
                 iterator.add(outroCano);
