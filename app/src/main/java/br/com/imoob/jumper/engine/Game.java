@@ -18,6 +18,7 @@ import br.com.imoob.jumper.Passaro;
 import br.com.imoob.jumper.Pontuacao;
 import br.com.imoob.jumper.R;
 import br.com.imoob.jumper.Tela;
+import br.com.imoob.jumper.VerificadorDeColisao;
 
 /**
  * Created by jose on 10/22/17.
@@ -60,6 +61,10 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener{
             canos.move();
 
             pontuacao.desenhaNo(canvas);
+
+            if(new VerificadorDeColisao(passaro, canos).temColisao()){
+                isRunning = false;
+            }
 
             // Aqui vamos desenhar os elementos do jogo!
             holder.unlockCanvasAndPost(canvas);

@@ -53,4 +53,22 @@ public class Cano {
         return posicao;
     }
 
+
+    /**
+     * Para o cano superior, a ideia é semelhante: precisamos saber quando
+     * a borda superior do pássaro toca a base do cano superior. Para pegarmos a borda superior do pássaro basta subtrair o RAIO da sua altura.
+     */
+    public boolean temColisaoVerticalCom(Passaro passaro){
+        return passaro.getAltura() - passaro.RAIO < this.alturaDoCanoSuperior
+                || passaro.getAltura() + passaro.RAIO > this.alturaDoCanoInferior;
+    }
+
+    /**
+     * Se a distância entre a posicao horizontal do cano e a posição X (ho- rizontal)
+     * do pássaro for menor que o seu RAIO, sabemos que houve uma colisão.
+     */
+    public boolean temColisaoHorizontalCom(Passaro passaro){
+        return this.posicao - passaro.X < passaro.RAIO;
+    }
+
 }

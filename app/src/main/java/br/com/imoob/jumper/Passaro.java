@@ -10,8 +10,8 @@ import android.graphics.Paint;
 public class Passaro {
 
     private static final Paint vermelho = Cores.getCorDoPassaro();
-    private static final int X = 100;
-    private static final int RAIO = 50;
+    public static final int X = 100;
+    public static final int RAIO = 50;
     private int altura;
     private Tela tela;
 
@@ -37,6 +37,10 @@ public class Passaro {
         if(altura > RAIO){
             this.altura -= 150;
         }
+    }
+
+    public int getAltura(){
+        return this.altura;
     }
 
 }
