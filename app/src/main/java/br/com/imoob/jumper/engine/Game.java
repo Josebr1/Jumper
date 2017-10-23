@@ -1,11 +1,15 @@
 package br.com.imoob.jumper.engine;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import br.com.imoob.jumper.Passaro;
+import br.com.imoob.jumper.R;
+import br.com.imoob.jumper.Tela;
 
 /**
  * Created by jose on 10/22/17.
@@ -16,9 +20,12 @@ public class Game extends SurfaceView implements Runnable{
     private boolean isRunning = true;
     private final SurfaceHolder holder = getHolder();
     private Passaro passaro;
+    private Bitmap background;
+    private Tela tela;
 
     public Game(Context context){
         super(context);
+
         inicializaElementos();
     }
 
@@ -32,6 +39,8 @@ public class Game extends SurfaceView implements Runnable{
 
             //Para termos acesso ao canvas, precisamos de um objeto que permita a edição de cada pixel da nossa tela. Esse objeto é o SurfaceHolder.
             Canvas canvas = holder.lockCanvas();
+
+            canvas.drawBitmap(background, 0, 0, null);
 
             passaro.desenhaNo(canvas);
             passaro.cai();
@@ -53,5 +62,10 @@ public class Game extends SurfaceView implements Runnable{
 
     private void inicializaElementos(){
         this.passaro = new Passaro();
+        this.tela = new Tela(getContext());
+
+        Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.background);
+        this.background = Bitmap.createScaledBitmap(back, back.getWidth(), tela.getAltura(), false);
+
     }
 }
