@@ -13,9 +13,11 @@ public class Passaro {
     private static final int X = 100;
     private static final int RAIO = 50;
     private int altura;
+    private Tela tela;
 
-    public Passaro(){
+    public Passaro(Tela tela){
         this.altura = 100;
+        this.tela = tela;
     }
 
     public void desenhaNo(Canvas canvas){
@@ -23,11 +25,18 @@ public class Passaro {
     }
 
     public void cai(){
-        this.altura += 5;
+        boolean chegouNoChao = altura + RAIO > tela.getAltura();
+
+        if(!chegouNoChao){
+            this.altura += 5;
+        }
+
     }
 
     public void pula(){
-        this.altura -= 150;
+        if(altura > RAIO){
+            this.altura -= 150;
+        }
     }
 
 }
