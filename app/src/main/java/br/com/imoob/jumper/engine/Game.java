@@ -87,7 +87,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener{
         this.pontuacao = new Pontuacao();
         this.tela = new Tela(getContext());
         this.passaro = new Passaro(tela, getContext());
-        this.canos = new Canos(tela, pontuacao);
+        this.canos = new Canos(tela, pontuacao, getContext());
 
 
         Bitmap back = BitmapFactory.decodeResource(getResources(), R.drawable.background);

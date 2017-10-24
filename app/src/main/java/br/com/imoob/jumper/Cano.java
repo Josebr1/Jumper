@@ -1,5 +1,8 @@
 package br.com.imoob.jumper;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
 /**
@@ -14,6 +17,7 @@ public class Cano {
     private int alturaDoCanoInferior;
     private int alturaDoCanoSuperior;
     private int posicao;
+    Bitmap bp, canoInferior, canoSuperior;
 
     public Cano(Tela tela, int posicao) {
         this.tela = tela;
@@ -23,17 +27,20 @@ public class Cano {
     }
 
 
-    public void desenhaNo(Canvas canvas) {
+    public void desenhaNo(Canvas canvas, Context context) {
+        bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.cano);
         desenhaCanoSuperiorNo(canvas);
         desenhaCanoInferiorNo(canvas);
     }
 
     private void desenhaCanoInferiorNo(Canvas canvas) {
-        canvas.drawRect(posicao, alturaDoCanoInferior, posicao + LARGURA_DO_CANO, tela.getAltura(), Cores.getCorDoCano());
+        this.canoInferior = Bitmap.createScaledBitmap(bp, LARGURA_DO_CANO, this.alturaDoCanoInferior, false);
+        canvas.drawBitmap(canoInferior,  posicao , alturaDoCanoInferior, null);
     }
 
     private void desenhaCanoSuperiorNo(Canvas canvas) {
-        canvas.drawRect(posicao, 0, posicao + LARGURA_DO_CANO, alturaDoCanoSuperior, Cores.getCorDoCano());
+        this.canoSuperior = Bitmap.createScaledBitmap(bp, LARGURA_DO_CANO, this.alturaDoCanoSuperior, false);
+        canvas.drawBitmap(canoSuperior, posicao, 0, null);
     }
 
 

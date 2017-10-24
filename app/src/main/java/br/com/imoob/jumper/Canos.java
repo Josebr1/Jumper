@@ -1,5 +1,6 @@
 package br.com.imoob.jumper;
 
+import android.content.Context;
 import android.graphics.Canvas;
 
 import java.util.ArrayList;
@@ -17,8 +18,9 @@ public class Canos {
     private List<Cano> canos = new ArrayList<>();
     private Tela tela;
     private Pontuacao pontuacao;
+    private Context context;
 
-    public Canos(Tela tela, Pontuacao pontuacao){
+    public Canos(Tela tela, Pontuacao pontuacao, Context context){
 
         int posicaoInicial = 200;
         for(int i =0; i<QUANTIDADE_DE_CANOS; i++){
@@ -28,11 +30,12 @@ public class Canos {
 
         this.tela = tela;
         this.pontuacao = pontuacao;
+        this.context = context;
     }
 
     public void desenhaNo(Canvas canvas){
         for(Cano cano: canos)
-            cano.desenhaNo(canvas);
+            cano.desenhaNo(canvas, context);
     }
 
     public void move(){
