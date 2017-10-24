@@ -1,4 +1,4 @@
-package br.com.imoob.jumper;
+package br.com.imoob.jumper.elementos;
 
 import android.content.Context;
 import android.util.DisplayMetrics;

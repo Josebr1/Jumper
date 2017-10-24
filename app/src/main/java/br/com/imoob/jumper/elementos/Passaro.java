@@ -1,11 +1,11 @@
-package br.com.imoob.jumper;
+package br.com.imoob.jumper.elementos;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Paint;
 
+import br.com.imoob.jumper.R;
 import br.com.imoob.jumper.engine.Som;
 
 /**
@@ -14,12 +14,10 @@ import br.com.imoob.jumper.engine.Som;
 
 public class Passaro {
 
-    private static final Paint vermelho = Cores.getCorDoPassaro();
     public static final int X = 100;
     public static final int RAIO = 50;
     private int altura;
     private Tela tela;
-    private Bitmap passoro;
     private Context context;
     private Som som;
 
@@ -32,7 +30,7 @@ public class Passaro {
 
     public void desenhaNo(Canvas canvas) {
         Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.passaro);
-        this.passoro = Bitmap.createScaledBitmap(bp, RAIO * 2, RAIO * 2, false);
+        Bitmap passoro = Bitmap.createScaledBitmap(bp, RAIO * 2, RAIO * 2, false);
         canvas.drawBitmap(passoro, X-RAIO, altura-RAIO, null);
     }
 

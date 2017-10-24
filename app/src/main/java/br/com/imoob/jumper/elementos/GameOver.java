@@ -4,8 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import br.com.imoob.jumper.Cores;
-import br.com.imoob.jumper.Tela;
+import br.com.imoob.jumper.engine.Cores;
 
 /**
  * Created by jose on 10/23/17.

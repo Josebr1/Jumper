@@ -1,4 +1,6 @@
-package br.com.imoob.jumper;
+package br.com.imoob.jumper.engine;
+
+import br.com.imoob.jumper.elementos.Passaro;
 
 /**
  * Created by jose on 10/23/17.

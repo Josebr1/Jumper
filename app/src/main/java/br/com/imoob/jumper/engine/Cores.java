@@ -1,9 +1,7 @@
-package br.com.imoob.jumper;
+package br.com.imoob.jumper.engine;
 
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.os.ParcelUuid;
 
 /**
  * Created by jose on 10/22/17.

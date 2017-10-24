@@ -1,4 +1,4 @@
-package br.com.imoob.jumper;
+package br.com.imoob.jumper.engine;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-import br.com.imoob.jumper.engine.Som;
+import br.com.imoob.jumper.elementos.Passaro;
+import br.com.imoob.jumper.elementos.Pontuacao;
+import br.com.imoob.jumper.elementos.Tela;
+import br.com.imoob.jumper.elementos.Cano;
 
 /**
  * Created by jose on 10/23/17.

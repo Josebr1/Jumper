@@ -9,16 +9,10 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import br.com.imoob.jumper.Cano;
-import br.com.imoob.jumper.Canos;
-import br.com.imoob.jumper.Passaro;
-import br.com.imoob.jumper.Pontuacao;
+import br.com.imoob.jumper.elementos.Passaro;
+import br.com.imoob.jumper.elementos.Pontuacao;
 import br.com.imoob.jumper.R;
-import br.com.imoob.jumper.Tela;
-import br.com.imoob.jumper.VerificadorDeColisao;
+import br.com.imoob.jumper.elementos.Tela;
 import br.com.imoob.jumper.elementos.GameOver;
 
 /**

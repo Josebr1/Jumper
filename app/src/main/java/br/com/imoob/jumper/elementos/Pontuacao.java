@@ -1,9 +1,9 @@
-package br.com.imoob.jumper;
+package br.com.imoob.jumper.elementos;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.util.StringBuilderPrinter;
 
+import br.com.imoob.jumper.engine.Cores;
 import br.com.imoob.jumper.engine.Som;
 
 /**
