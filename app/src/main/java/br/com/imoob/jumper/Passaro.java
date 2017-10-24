@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
+import br.com.imoob.jumper.engine.Som;
+
 /**
  * Created by jose on 10/22/17.
  */
@@ -19,12 +21,13 @@ public class Passaro {
     private Tela tela;
     private Bitmap passoro;
     private Context context;
+    private Som som;
 
-    public Passaro(Tela tela, Context context) {
+    public Passaro(Tela tela, Context context, Som som) {
         this.altura = 100;
         this.tela = tela;
         this.context = context;
-
+        this.som = som;
     }
 
     public void desenhaNo(Canvas canvas) {
@@ -44,6 +47,7 @@ public class Passaro {
 
     public void pula() {
         if (altura > RAIO) {
+            som.play(Som.PULO);
             this.altura -= 150;
         }
     }
