@@ -86,7 +86,7 @@ public class Game extends SurfaceView implements Runnable, View.OnTouchListener{
     private void inicializaElementos(){
         this.pontuacao = new Pontuacao();
         this.tela = new Tela(getContext());
-        this.passaro = new Passaro(tela);
+        this.passaro = new Passaro(tela, getContext());
         this.canos = new Canos(tela, pontuacao);
 
 

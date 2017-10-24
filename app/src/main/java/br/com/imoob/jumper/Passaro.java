@@ -1,5 +1,8 @@
 package br.com.imoob.jumper;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
@@ -14,32 +17,38 @@ public class Passaro {
     public static final int RAIO = 50;
     private int altura;
     private Tela tela;
+    private Bitmap passoro;
+    private Context context;
 
-    public Passaro(Tela tela){
+    public Passaro(Tela tela, Context context) {
         this.altura = 100;
         this.tela = tela;
+        this.context = context;
+
     }
 
-    public void desenhaNo(Canvas canvas){
-        canvas.drawCircle(X, altura, RAIO, vermelho);
+    public void desenhaNo(Canvas canvas) {
+        Bitmap bp = BitmapFactory.decodeResource(context.getResources(), R.drawable.passaro);
+        this.passoro = Bitmap.createScaledBitmap(bp, RAIO * 2, RAIO * 2, false);
+        canvas.drawBitmap(passoro, X-RAIO, altura-RAIO, null);
     }
 
-    public void cai(){
+    public void cai() {
         boolean chegouNoChao = altura + RAIO > tela.getAltura();
 
-        if(!chegouNoChao){
+        if (!chegouNoChao) {
             this.altura += 5;
         }
 
     }
 
-    public void pula(){
-        if(altura > RAIO){
+    public void pula() {
+        if (altura > RAIO) {
             this.altura -= 150;
         }
     }
 
-    public int getAltura(){
+    public int getAltura() {
         return this.altura;
     }
 
